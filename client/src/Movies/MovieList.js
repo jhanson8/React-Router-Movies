@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */ 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -14,10 +15,10 @@ const MovieList = props => {
           console.error('Server Error', error);
         });
     }
-    
+
     getMovies();
   }, []);
-  
+
   return (
     <div className="movie-list">
       {movies.map(movie => (
