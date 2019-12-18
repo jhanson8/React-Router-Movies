@@ -1,12 +1,16 @@
-/* jshint esversion: 6 */ 
+/* jshint esversion: 6 */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {useParams} from "react-router-dom";
 
 const Movie = (props) => {
+  console.log(props);
   const [movie, setMovie] = useState();
-
+  const { movieID } = useParams();
   useEffect(() => {
-    const id = 1;
+    const id = movieID;
+
+
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -29,7 +33,7 @@ const Movie = (props) => {
 
   if (!movie) {
     return <div>Loading movie information...</div>;
-  }
+  };
 
   const { title, director, metascore, stars } = movie;
   return (
